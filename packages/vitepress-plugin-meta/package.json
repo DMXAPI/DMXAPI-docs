@@ -1,0 +1,74 @@
+{
+  "name": "@nolebase/vitepress-plugin-meta",
+  "type": "module",
+  "version": "2.17.0",
+  "description": "A vitepress plugin to add <meta> (excerpts, author, authors, etc.) to your rendered pages to maximize SEO and social media sharing capabilities.",
+  "author": {
+    "name": "Nólëbase",
+    "email": "nolebase@ayaka.moe",
+    "url": "https://github.com/nolebase"
+  },
+  "license": "MIT",
+  "homepage": "https://nolebase-integrations.ayaka.io/en/integrations/vitepress-plugin-meta/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nolebase/integrations.git",
+    "directory": "packages/vitepress-plugin-meta"
+  },
+  "keywords": [
+    "vitepress",
+    "nolebase",
+    "markdown",
+    "vitepress-plugin",
+    "nolebase-integration",
+    "open-graph-protocol",
+    "social-media-card",
+    "meta"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/vitepress/index.d.ts",
+      "import": "./dist/vitepress/index.mjs",
+      "require": "./dist/vitepress/index.cjs"
+    },
+    "./vitepress": {
+      "types": "./dist/vitepress/index.d.ts",
+      "import": "./dist/vitepress/index.mjs",
+      "require": "./dist/vitepress/index.cjs"
+    }
+  },
+  "main": "./dist/vitepress/index.cjs",
+  "module": "./dist/vitepress/index.mjs",
+  "types": "./dist/vitepress/index.d.ts",
+  "files": [
+    "README.md",
+    "dist",
+    "package.json"
+  ],
+  "scripts": {
+    "dev": "concurrently \"pnpm run stub\"",
+    "stub": "unbuild --stub",
+    "build": "unbuild",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "vitepress": "^1.5.0 || ^2.0.0-alpha.1"
+  },
+  "dependencies": {
+    "defu": "^6.1.4",
+    "hast-util-select": "^6.0.4",
+    "hast-util-to-text": "^4.0.2",
+    "rehype": "^13.0.2",
+    "rehype-parse": "^9.0.1",
+    "retext-stringify": "^4.0.0",
+    "unified": "^11.0.5",
+    "unist-util-remove": "^4.0.0",
+    "unist-util-remove-position": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/hast": "^3.0.4"
+  }
+}

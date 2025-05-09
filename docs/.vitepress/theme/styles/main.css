@@ -1,0 +1,180 @@
+html, body {
+  -webkit-tap-highlight-color: transparent; /* 避免触屏下的点击高亮颜色 */
+}
+
+/* 主页下方的页脚透明度 */
+.VPFooter {
+  opacity: 0.8;
+}
+
+.VPSocialLinks.VPNavBarSocialLinks.social-links {
+  margin-right: 0;
+}
+
+.vp-doc a {
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.vp-doc a:hover {
+  text-decoration: underline;
+}
+
+/* 脚注 */
+.footnotes > .footnotes-list {
+  margin-top: 32px;
+  opacity: 0.9;
+  font-size: 12px;
+  /* 确保脚注上的返回链接符号 ↩ 不会被 body 的 Emoji 字体覆盖渲染为 ↩️ */
+  font-family: sans-serif;
+}
+
+.footnotes > .footnotes-list > .footnote-item > p {
+  line-height: 18px;
+}
+
+@media (max-width: 640px) {
+  .VPBadge {
+    font-size: 8px;
+    padding: 0px 6px;
+  }
+}
+
+@media (max-width: 960px) {
+  .VPBadge {
+    font-size: 10px;
+    padding: 0px 8px;
+  }
+}
+
+/**
+  Discord 链接按钮样式
+*/
+
+.VPHero.VPHomeHero .actions a[href="https://discord.gg/XuNFDcDZGj"] {
+  color: #6972d4;
+  border: 2px #6972d4 solid;
+  background-color: transparent;
+}
+
+.VPHero.VPHomeHero .actions a[href="https://discord.gg/XuNFDcDZGj"]:hover {
+  color: white;
+  background-color: #6975f2;
+}
+
+.VPHero.VPHomeHero .actions a[href="https://discord.gg/XuNFDcDZGj"]:active {
+  color: white;
+  background-color: #404eed;
+}
+
+/**
+  暗色模式下 Discord 链接按钮样式
+*/
+
+.dark .VPHero.VPHomeHero .actions a[href="https://discord.gg/XuNFDcDZGj"] {
+  color: #898fcf;
+  border: 2px #898fcf solid;
+  background-color: transparent;
+}
+
+.dark .VPHero.VPHomeHero .actions a[href="https://discord.gg/XuNFDcDZGj"]:hover {
+  color: white;
+  background-color: #404eed;
+}
+
+.dark .VPHero.VPHomeHero .actions a[href="https://discord.gg/XuNFDcDZGj"]:active {
+  color: white;
+  background-color: #444c9e;
+}
+
+/**
+  GitHub 链接按钮样式
+*/
+
+.VPHero.VPHomeHero .actions a[href="https://github.com/nolebase/integrations"] {
+  color: #616161;
+  border: 2px #616161 solid;
+  background-color: transparent;
+}
+
+.VPHero.VPHomeHero .actions a[href="https://github.com/nolebase/integrations"]:hover {
+  color: white;
+  background-color: #4b4b4b;
+}
+
+.VPHero.VPHomeHero .actions a[href="https://github.com/nolebase/integrations"]:active {
+  color: white;
+  background-color: #000;
+}
+
+/**
+  暗色模式下 GitHub 链接按钮样式
+*/
+
+.dark .VPHero.VPHomeHero .actions a[href="https://github.com/nolebase/integrations"] {
+  color: #a4a4a4;
+  border: 2px #a4a4a4 solid;
+  background-color: transparent
+}
+
+.dark .VPHero.VPHomeHero .actions a[href="https://github.com/nolebase/integrations"]:hover {
+  color: white;
+  background-color: #252525;
+}
+
+.dark .VPHero.VPHomeHero .actions a[href="https://github.com/nolebase/integrations"]:active {
+  color: white;
+  background-color: #4b4b4b;
+}
+
+.custom-link {
+  color: #3eaf7c;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.custom-link:hover {
+  color: #4abf8a;
+  text-decoration: underline;
+}
+
+.strong-text {
+  color: #382f2f;
+}
+
+.dark .strong-text {
+  color: #dfdfd6;
+}
+
+.key-gradient {
+  font-weight: bold;
+  font-size: 1em;
+  background: linear-gradient(90deg, #fbb040 0%, #f15a29 40%, #c837ab 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dmxapi-d {
+  background: #19b3c6;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.dmxapi-m {
+  background: #6d5a99;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.dmxapi-x {
+  background: #e94b6a;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.dmxapi-api {
+  background: #fff;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

@@ -1,0 +1,70 @@
+version: "0.2"
+ignorePaths: []
+dictionaryDefinitions: []
+dictionaries: []
+words:
+  - antfu
+  - apng
+  - asciicast
+  - asciinema
+  - Astro
+  - Attributify
+  - avatar
+  - ayaka
+  - Baloo
+  - baloo-2
+  - blurhash
+  - bumpp
+  - canvaskit
+  - Chakra
+  - chakra-petch
+  - changelogithub
+  - cijiugechu
+  - colorette
+  - composables
+  - contributor
+  - datetime
+  - defu
+  - easytag
+  - ElMassimo
+  - emittypes
+  - evanw
+  - execa
+  - frontmatter
+  - Gitea
+  - graymatter
+  - iconify
+  - jfif
+  - Logseq
+  - mkdist
+  - napi
+  - neko
+  - Nisekoi5
+  - nodir
+  - Northword
+  - Noto
+  - octicon
+  - Petch
+  - pjpeg
+  - quotepath
+  - Rehype
+  - resvg
+  - retext
+  - rizumu
+  - Roboto
+  - shikijs
+  - taze
+  - testdata
+  - Twoslash
+  - unconfig
+  - uncrypto
+  - unlazy
+  - unocss
+  - unplugin
+  - Vite
+  - vitepress
+  - vueuse
+ignoreWords: []
+import:
+  - "@cspell/dict-ru_ru/cspell-ext.json"
+  - "@nolebase/cspell-dict/cspell-ext.json"

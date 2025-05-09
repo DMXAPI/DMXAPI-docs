@@ -1,0 +1,92 @@
+{
+  "name": "@nolebase/integrations",
+  "type": "module",
+  "version": "2.17.0",
+  "description": "A unconfig (unified configurations) for both VitePress and VitePress theme. Supporting all Nólëbase Integrations with default theme.",
+  "author": {
+    "name": "Nólëbase",
+    "email": "nolebase@ayaka.moe",
+    "url": "https://github.com/nolebase"
+  },
+  "license": "MIT",
+  "homepage": "https://nolebase-integrations.ayaka.io/en/integrations/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nolebase/integrations.git",
+    "directory": "packages/integrations"
+  },
+  "keywords": [
+    "vitepress",
+    "nolebase",
+    "markdown",
+    "file-history",
+    "changelog",
+    "git",
+    "git-history",
+    "git-log",
+    "vitepress-plugin",
+    "nolebase-integration"
+  ],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./vitepress/client": {
+      "types": "./dist/vitepress/client/index.d.ts",
+      "import": "./dist/vitepress/client/index.mjs",
+      "require": "./dist/vitepress/client/index.cjs"
+    },
+    "./vitepress/markdown-it": {
+      "types": "./dist/vitepress/markdown-it/index.d.ts",
+      "import": "./dist/vitepress/markdown-it/index.mjs",
+      "require": "./dist/vitepress/markdown-it/index.cjs"
+    },
+    "./vitepress/vite": {
+      "types": "./dist/vitepress/vite/index.d.ts",
+      "import": "./dist/vitepress/vite/index.mjs",
+      "require": "./dist/vitepress/vite/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "README.md",
+    "dist",
+    "package.json"
+  ],
+  "scripts": {
+    "dev": "concurrently \"pnpm run stub\"",
+    "stub": "unbuild --stub",
+    "build": "unbuild",
+    "typecheck": "vue-tsc --noEmit"
+  },
+  "peerDependencies": {
+    "vite": "^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0",
+    "vitepress": "^1.5.0 || ^2.0.0-alpha.1"
+  },
+  "peerDependenciesMeta": {
+    "vite": {
+      "optional": true
+    },
+    "vitepress": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "@nolebase/markdown-it-bi-directional-links": "workspace:^",
+    "@nolebase/markdown-it-unlazy-img": "workspace:^",
+    "@nolebase/vitepress-plugin-enhanced-mark": "workspace:^",
+    "@nolebase/vitepress-plugin-enhanced-readabilities": "workspace:^",
+    "@nolebase/vitepress-plugin-git-changelog": "workspace:^",
+    "@nolebase/vitepress-plugin-highlight-targeted-heading": "workspace:^",
+    "@nolebase/vitepress-plugin-index": "workspace:^",
+    "@nolebase/vitepress-plugin-inline-link-preview": "workspace:^",
+    "@nolebase/vitepress-plugin-page-properties": "workspace:^",
+    "@nolebase/vitepress-plugin-thumbnail-hash": "workspace:^",
+    "defu": "^6.1.4"
+  }
+}
