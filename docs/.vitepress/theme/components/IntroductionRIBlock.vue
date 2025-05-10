@@ -59,7 +59,10 @@ export default {
 }
 
 .highlight {
-  color: #FF9F43;
+  background-image: linear-gradient(90deg, #fbb040 0%, #f15a29 40%, #c837ab 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .subtitle {
