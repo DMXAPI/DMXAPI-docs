@@ -35,7 +35,7 @@ updatedAt: 2025-05-11
 https://cdn.klingai.com/bs2/upload-kling-api/0900730423/virtualTryOn/CjikMGgHQaYAAAAABUqu9w-0.png
 ```
 
-![](https://cdn.jsdelivr.net/gh/timerring/scratchpad2023/2024/2025-05-11-22-15-55.png)
+![](https://cdn.jsdelivr.net/gh/timerring/scratchpad2023/2024/2025-05-11-23-41-30.webp)
 
 ## 流程图
 
