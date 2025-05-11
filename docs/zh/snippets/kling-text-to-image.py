@@ -20,7 +20,7 @@ class KlingTextToImage:
             'Content-Type': 'application/json'
         }
 
-    def kling_generate_image(self, model_name, prompt, negative_prompt, output_format, n, aspect_ratio, callback_url):
+    def _kling_generate_image(self, model_name, prompt, negative_prompt, output_format, n, aspect_ratio, callback_url):
         """使用 kling 生成图像
         
         参数: 
@@ -55,7 +55,7 @@ class KlingTextToImage:
         # 从 json 文件中返回任务 ID
         return json_data['data']['task_id']
     
-    def query_kling_image_url(self, task_id):
+    def _query_kling_image_url(self, task_id):
         """使用查询接口获取生成图像 url
         
         输入参数:
@@ -77,11 +77,12 @@ class KlingTextToImage:
         json_data = json.loads(res.read().decode("utf-8"))
         # 如果任务状态为成功，则返回图像 url
         if json_data['data']['task_status'] == "succeed":
-            return json_data['data']['task_result']['images'][0]['url']
+            image_urls = [image['url'] for image in json_data['data']['task_result']['images']]
+            return image_urls
         else: 
             return None
     
-    def generate_image(self, model_name, prompt, negative_prompt="", output_format="png", n=1, aspect_ratio="16:9", callback_url=""):
+    def generate_image(self, model_name, prompt, negative_prompt="", output_format="png", n=1, aspect_ratio="16:9", callback_url="", timeout=60):
         """实现功能，直接根据预设的参数返回生成图像的 url
         
         参数:
@@ -96,14 +97,12 @@ class KlingTextToImage:
             image_url: 图像 url
         """
         # 调用生成图像 api 提交图像生成任务，返回获取 task_id。
-        task_id = self.kling_generate_image(model_name, prompt, negative_prompt, output_format, n, aspect_ratio, callback_url) 
+        task_id = self._kling_generate_image(model_name, prompt, negative_prompt, output_format, n, aspect_ratio, callback_url) 
         start_time = time.time()
-        # 队列等待超时时间
-        timeout = 60
         # 轮询等待生成完成
         while True:
             # 根据 task_id 调用查询图像api 查看图像生成任务是否完成。
-            image_url = self.query_kling_image_url(task_id) 
+            image_url = self._query_kling_image_url(task_id) 
             # 如果图像生成任务完成，则返回图像 url
             if image_url is not None:
                 return image_url
@@ -119,7 +118,7 @@ class KlingTextToImage:
 # 使用示例
 if __name__ == "__main__":
     API_URL="www.dmxapi.cn" # API 节点地址
-    DMX_API_TOKEN = "sk-XXXXXXXXXXX"  # API 密钥
+    DMX_API_TOKEN = "sk-XXXXXXXXXXXXXX"  # API 密钥
     
     # 创建图像生成器实例
     kling_text_to_image = KlingTextToImage(api_token=DMX_API_TOKEN, api_url=API_URL)
@@ -132,7 +131,8 @@ if __name__ == "__main__":
         # output_format="png", # 输出格式：png 或 jpg
         # n=1, # int, 生成数量 [1, 9]
         # aspect_ratio="16:9", # 输出比例：16:9, 9:16, 1:1, 4:3, 3:4, 3:2, 2:3
-        # callback_url="" # 回调地址，可以用于 webhook 等通知场景
+        # callback_url="", # 回调地址，可以用于 webhook 等通知场景
+        # timeout=120 # 队列等待超时时间
     )
     
     print(image_url)

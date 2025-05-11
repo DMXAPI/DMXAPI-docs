@@ -24,40 +24,41 @@ updatedAt: 2025-05-08
 > 深色背景为可以修改的参数，非必选参数已经注释，可以按照自己的需求启用。
 
 
-::: code-group
-
-
-<<< @/zh/snippets/kling-text-to-image.py{121-122,129-135}[标准类版本]
-
-
-
-<<< @/zh/snippets/kling-text-to-image-function.py{6-7,20-26}[纯函数版本]
-
-
-
-:::
+<<< @/zh/snippets/kling-text-to-image.py{120-121,128-135}
 
 
 ## 返回结果
 
-返回结果为图片的 url，每个 url 有效期一般为 3 天以内，尽快下载或者转存。
+返回结果为图片的 url 列表，这里使用参数 `n=2` 生成两张图片，每个 url kling 官方保证有效期为 30 天，尽快下载或者转存。
 
 ```
-https://cdn.klingai.com/bs2/upload-kling-api/6567899185/image/CjikMGgHQaYAAAAAA1CAQw-0_raw_image_0.png
+['https://cdn.klingai.com/bs2/upload-kling-api/8089468206/image/Cl6kH2gHPegAAAAABUwweg-0_raw_image_0.png', 'https://cdn.klingai.com/bs2/upload-kling-api/8089468206/image/Cl6kH2gHPegAAAAABUwweg-1_raw_image_0.png']
 ```
 
-![](https://cdn.jsdelivr.net/gh/timerring/scratchpad2023/2024/2025-05-04-23-33-40.png)
+![](https://cdn.jsdelivr.net/gh/timerring/scratchpad2023/2024/2025-05-11-20-50-49.png)
+
+![](https://cdn.jsdelivr.net/gh/timerring/scratchpad2023/2024/2025-05-11-20-51-02.png)
 
 ## 函数流程图
 
 ```mermaid
-flowchart TD
-J[调用kling_generate_image获取task_id] --> K[开始轮询任务状态]
-K --> L[调用query_kling_image_url]
-L --> M{获取到图像URL?}
-M -->|否| N{是否超时?}
-N -->|否| O[等待1秒]
-O --> L
-N -->|是| P[返回超时错误]
-M -->|是| Q[返回图像URL]
+graph TD
+    A[客户端初始化 KlingTextToImage] -->|提供 API 凭证| B[调用 generate_image 方法]
+    B -->|传入提示词和参数| C[_kling_generate_image 方法]
+    C -->|构建请求体| D[发送 POST 请求到 API]
+    D -->|返回 task_id| E[开始轮询任务状态]
+    
+    E -->|调用| F[_query_kling_image_url 方法]
+    F -->|发送 GET 请求| G[检查任务状态]
+    
+    G -->|任务状态?| H{任务完成?}
+    H -->|是| I[提取并返回图像 URL]
+    H -->|否| J{是否超时?}
+    
+    J -->|是| K[返回 None]
+    J -->|否| L[等待 1 秒]
+    L --> F
+    
+    I -->|返回图像 URL 列表| M[结束流程]
+    K -->|返回超时信息| M
 ```
