@@ -18,11 +18,8 @@ def query_kling_image_url(task_id):
         成功时: 返回生成图像的URL地址
         任务未完成或失败: 返回None
     """
-    action = "images"
-    action2 = "generations"
-
     # 根据请求接口，构建完整的查询路径，包含task_id参数
-    query_path = f"/kling/v1/{action}/{action2}/{task_id}"
+    query_path = f"/kling/v1/images/generations/{task_id}"
     # 构建请求头，包含鉴权消息
     headers = {
     'Authorization': f'Bearer {DMX_API_TOKEN}'
@@ -35,7 +32,8 @@ def query_kling_image_url(task_id):
     # print(json_data)
     # 检查任务状态，如果成功则返回第一张图像的URL，否则返回None
     if json_data['data']['task_status'] == "succeed":
-        return json_data['data']['task_result']['images'][0]['url']
+        image_urls = [image['url'] for image in json_data['data']['task_result']['images']]
+        return image_urls
     else: 
         return None
 

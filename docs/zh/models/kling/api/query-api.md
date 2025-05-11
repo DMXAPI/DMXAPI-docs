@@ -13,10 +13,19 @@ updatedAt: 2025-05-08
 
 ## 请求
 
+> [!TIP]
+> `{api_url}` 为你实际使用的 API 节点，请根据实际情况填写。例如：
+> - `www.dmxapi.cn`
+> - `www.dmxapi.com`
+> - `ssvip.dmxapi.com`
+
+
 - 请求方式: GET
 
 - 请求地址: `API对应请求接口/{task_id}`
-- 例如 `https://{api_url}/kling/v1/images/generations/{task_id}`
+- 例如针对 [生成图像 API](./generate-image.md)：
+  - `https://{api_url}/kling/v1/images/generations/{task_id}`
+
 
 ## 请求参数
 
@@ -48,4 +57,4 @@ updatedAt: 2025-05-08
 > 深色背景为可以修改的参数，非必选参数已经注释，可以按照自己的需求启用。
 
 
-<<< @/zh/snippets/query-api.py{5-6,21-25,44}
+<<< @/zh/snippets/query-api.py{5-6,22,42}
