@@ -71,7 +71,7 @@ updatedAt: 2025-05-09
 
 <<< @/zh/snippets/lip-sync.py{5-6,19-41}
 
-## 响应参数示例
+## 生成响应参数
 
 > 业务码的含义请参考 [业务码](/zh/models/kling/api/business-code.md)。
 
@@ -90,4 +90,36 @@ updatedAt: 2025-05-09
 ```
 
 
+## 查询响应参数
 
+```
+{
+  "code": 0, //错误码；具体定义见1.1错误码
+  "message": "string", //错误信息；具体定义见1.1错误码
+  "request_id": "string", //请求ID，系统生成，用于跟踪请求、排查问题；全局唯一
+  "data":[
+    {
+      "task_id": "string", //任务ID，系统生成；全局唯一
+      "task_status": "string", //任务状态，枚举值：submitted（已提交）、processing（处理中）、succeed（成功）、failed（失败）
+      "task_status_msg": "string", //任务状态信息，当任务失败时展示失败原因（如触发平台的内容风控等）
+      "task_info":{ //任务创建时的参数信息
+        "parent_video": {
+         	"id": "string", //原视频ID；全局唯一
+      		"url": "string", //原视频的URL（请注意，为保障信息安全，生成的图片/视频会在30天后被清理，请及时转存）
+      		"duration": "string" //原视频总时长，单位s
+        }
+      }, //任务创建时用户填写的详细信息
+      "task_result":{
+        "videos":[  //数组是为了保留扩展性，以防未来要支持n
+          {
+            "url": "string", //对口型视频的URL（请注意，为保障信息安全，生成的图片/视频会在30天后被清理，请及时转存）
+            "duration": "string" //对口型视频总时长，单位s
+          }
+        ]
+    	}
+      "created_at": 1722769557708, //任务创建时间，Unix时间戳、单位ms
+      "updated_at": 1722769557708, //任务更新时间，Unix时间戳、单位ms
+    }
+  ]
+}
+```
