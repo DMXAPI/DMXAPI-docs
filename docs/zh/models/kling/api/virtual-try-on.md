@@ -57,7 +57,7 @@ updatedAt: 2025-05-09
 
 <<< @/zh/snippets/virtual-try-on.py{6-7,31-36}
 
-## 响应参数示例
+## 生成响应参数
 
 > 业务码的含义请参考 [业务码](/zh/models/kling/api/business-code.md)。
 
@@ -75,5 +75,28 @@ updatedAt: 2025-05-09
 }
 ```
 
+## 查询响应参数
 
+```
+{
+  "code": 0, //错误码；具体定义见错误码
+  "message": "string", //错误信息
+  "request_id": "string", //请求ID，系统生成，用于跟踪请求、排查问题
+  "data":{
+  	"task_id": "string", //任务ID，系统生成
+    "task_status": "string", //任务状态，枚举值：submitted（已提交）、processing（处理中）、succeed（成功）、failed（失败）
+    "task_status_msg": "string", //任务状态信息，当任务失败时展示失败原因（如触发平台的内容风控等）
+    "created_at": 1722769557708, //任务创建时间，Unix时间戳、单位ms
+    "updated_at": 1722769557708, //任务更新时间，Unix时间戳、单位ms
+    "task_result":{
+      "images":[
+        {
+          "index": int, //图片编号
+          "url": "string" //生成图片的URL，例如：https://h1.inkwai.com/bs2/upload-ylab-stunt/1fa0ac67d8ce6cd55b50d68b967b3a59.png（请注意，为保障信息安全，生成的图片/视频会在30天后被清理，请及时转存）
+        }
+      ]
+    }
+  }
+}
+```
 

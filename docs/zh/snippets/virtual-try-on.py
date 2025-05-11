@@ -28,7 +28,7 @@ def kling_virtual_try_on():
    """
    # 构建API请求体，包含所有图像生成参数
    payload = json.dumps({
-      "model_name": "kolors-virtual-try-on-v1-5", # 模型名称，可选值：基础版本 `kolors-virtual-try-on-v1-5` 或 v1-5 版本 `kolors-virtual-try-on-v1-5` 支持服装组合
+      "model_name": "kolors-virtual-try-on-v1-5", # 模型名称，可选值：基础版本 `kolors-virtual-try-on-v1` 或 v1-5 版本 `kolors-virtual-try-on-v1-5` 支持服装组合
       # 人物图片 也可以传入 base64 编码后的图片字符串 `get_image_base64("path/to/human_image.jpg")`
       "human_image": "https://assets.christiandior.com/is/image/diorprod/LOOK_F_25_1_LOOK_095_E04?$lookDefault_GH-GHC$&crop=568,0,1864,2000&bfc=on&qlt=85",
       # 服饰图片 也可以传入 base64 编码后的图片字符串 `get_image_base64("path/to/cloth_image.jpg")`
