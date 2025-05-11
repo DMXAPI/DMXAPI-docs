@@ -1,5 +1,5 @@
 ---
-title: 可灵 Kling 图生图
+title: 可灵 Kling 图生图案例
 gitChangelog: false
 updatedAt: 2025-05-08
 ---
@@ -24,7 +24,7 @@ updatedAt: 2025-05-08
 > 深色背景为可以修改的参数，非必选参数已经注释，可以按照自己的需求启用。
 
 
-<<< @/zh/snippets/kling-image-to-image.py{164-165,172-182}
+<<< @/zh/snippets/kling-image-to-image.py{165-166,173-183}
 
 
 ## 返回结果

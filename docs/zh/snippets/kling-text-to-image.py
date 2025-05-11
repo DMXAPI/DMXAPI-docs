@@ -14,6 +14,7 @@ class KlingTextToImage:
         self.api_token = api_token
         # 初始化 HTTP 连接
         self.conn = http.client.HTTPSConnection(self.api_url)
+        self.endpoint = "/kling/v1/images/generations"
         # 设置请求头
         self.headers = {
             'Authorization': f'Bearer {self.api_token}',
@@ -46,14 +47,18 @@ class KlingTextToImage:
         })
         
         # 发送 POST 请求，提交图像生成任务
-        self.conn.request("POST", "/kling/v1/images/generations?=null", payload, self.headers)
+        self.conn.request("POST", self.endpoint, payload, self.headers)
         # 获取响应
         res = self.conn.getresponse()
         # 读取响应内容并解析为 JSON
         json_data = json.loads(res.read().decode("utf-8"))
         # print(json_data)
-        # 从 json 文件中返回任务 ID
-        return json_data['data']['task_id']
+        if 'code' in json_data and json_data['code'] == 0:
+            # 成功则返回提交的任务 id
+            return json_data['data']['task_id']
+        else:
+            # 失败则返回错误信息
+            raise Exception(f"API调用失败：{json_data['message']}")
     
     def _query_kling_image_url(self, task_id):
         """使用查询接口获取生成图像 url
@@ -64,10 +69,7 @@ class KlingTextToImage:
             image_url: 图像 url
         """
         # 构建查询路径
-        action = "images"
-        action2 = "generations"
-
-        query_path = f"/kling/v1/{action}/{action2}/{task_id}"
+        query_path = f"{self.endpoint}/{task_id}"
 
         # 发送 GET 请求，查询图像生成任务状态
         self.conn.request("GET", query_path, None, self.headers)
@@ -125,7 +127,7 @@ if __name__ == "__main__":
     
     # 生成图像
     image_url = kling_text_to_image.generate_image(
-        model_name="kling-v1-5", # [必选]模型名称 可选择 kling-v1-5 或 kling-v1
+        model_name="kling-v1-5", # [必选]模型名称 可选择 kling-v1-5 或 kling-v1 或 kling-v2
         prompt="生成一张袋鼠的照片，手里拿着一个写着'DMXAPI'的牌子", # [必选]文本提示词
         # negative_prompt="", # 负向文本提示词
         # output_format="png", # 输出格式：png 或 jpg

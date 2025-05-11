@@ -15,6 +15,7 @@ class KlingImageToImage:
         self.api_token = api_token
         # 初始化 HTTP 连接
         self.conn = http.client.HTTPSConnection(self.api_url)
+        self.endpoint = "/kling/v1/images/generations"
         # 设置请求头
         self.headers = {
             'Authorization': f'Bearer {self.api_token}',
@@ -67,7 +68,7 @@ class KlingImageToImage:
         }
             
         # 发送 POST 请求，提交图像生成任务
-        self.conn.request("POST", "/kling/v1/images/generations", json.dumps(payload), self.headers)
+        self.conn.request("POST", self.endpoint, json.dumps(payload), self.headers)
         # 获取响应
         res = self.conn.getresponse()
         # 读取响应内容并解析为 JSON
@@ -89,7 +90,7 @@ class KlingImageToImage:
             image_url: 图像 url，任务未完成时返回 None
         """
         # 构建查询路径
-        query_path = f"/kling/v1/images/generations/{task_id}"
+        query_path = f"{self.endpoint}/{task_id}"
 
         # 发送 GET 请求，查询图像生成任务状态
         self.conn.request("GET", query_path, None, self.headers)

@@ -1,5 +1,5 @@
 ---
-title: 可灵 Kling 文生图
+title: 可灵 Kling 文生图案例
 gitChangelog: false
 updatedAt: 2025-05-08
 ---
@@ -24,7 +24,7 @@ updatedAt: 2025-05-08
 > 深色背景为可以修改的参数，非必选参数已经注释，可以按照自己的需求启用。
 
 
-<<< @/zh/snippets/kling-text-to-image.py{120-121,128-135}
+<<< @/zh/snippets/kling-text-to-image.py{122-123,130-137}
 
 
 ## 返回结果
@@ -43,7 +43,7 @@ updatedAt: 2025-05-08
 
 ```mermaid
 graph TD
-    A[客户端初始化 KlingTextToImage] -->|提供 API 凭证| B[调用 generate_image 方法]
+    A[初始化 KlingTextToImage] -->|提供 API 凭证| B[调用 generate_image 方法]
     B -->|传入提示词和参数| C[_kling_generate_image 方法]
     C -->|构建请求体| D[发送 POST 请求到 API]
     D -->|返回 task_id| E[开始轮询任务状态]
