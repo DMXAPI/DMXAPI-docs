@@ -13,12 +13,18 @@ updatedAt: 2025-05-08
 > 我们**持续同步**官方最新 API 变更，确保本文档是官方 API 规范的**可用实现**。如发现任何不一致之处，[请及时联系客服](https://dmxapi.cn/models.html#contact)。
 
 
+- [Kling 模型能力一览](overview.md)
 
 ## 案例文档
 
 
 - [可灵 Kling 文生图](kling-text-to-image.md)
-
+- [可灵 Kling 图生图](kling-image-to-image.md)
+- [可灵 Kling 文生视频](kling-text-to-video.md)
+- [可灵 Kling 图生视频](kling-image-to-video.md)    
+- [可灵 Kling 视频扩展](kling-video-extend.md)
+- [可灵 Kling 视频口型同步](kling-lip-sync.md)
+- [可灵 Kling 虚拟试穿](kling-virtual-try-on.md)
 
 ## API 文档
 
