@@ -59,7 +59,6 @@ print(base64array)
 ```python[python]
 import requests
 import base64
-from io import BytesIO
 
 def url_image_to_base64(image_url):
     """
