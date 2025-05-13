@@ -15,5 +15,6 @@ updatedAt: 2025-05-08
 
 ## 提交任务接口
 
+- [图生图 API](image-to-image-api.md)
 
 
