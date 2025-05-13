@@ -23,7 +23,7 @@ updatedAt: 2025-05-08
 - 请求方式: GET
 
 - 请求地址: `/mj/task/{task_id}/fetch`
-- 例如针对 [提交任务 API](./submit-task-api.md)：
+- 例如针对 [提交任务 API]()：
   - `https://{api_url}/mj/task/{task_id}/fetch`
 
 

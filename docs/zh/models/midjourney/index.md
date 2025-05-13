@@ -25,7 +25,7 @@ updatedAt: 2025-05-08
 ## 模型介绍
 
 > [!NOTE]
-> 通过 **DMXAPI** 接入 Midjourney AI，您可以轻松将这些强大的图像生成功能集成到自己的应用和工作流程中，无需处理复杂的 API 对接流程。详细对比可以查看 [Midjourney 模型能力一览](./overview.md) 了解 Midjourney 模型。
+> 通过 **DMXAPI** 接入 Midjourney AI，您可以轻松将这些强大的图像生成功能集成到自己的应用和工作流程中，无需处理复杂的 API 对接流程。
 
 ### midjourney-v5
 
