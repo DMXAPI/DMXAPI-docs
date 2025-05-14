@@ -67,12 +67,12 @@ def midjourney_generate_image(image_path):
     # 获取响应
     res = conn.getresponse()
     data_json = json.loads(res.read().decode("utf-8"))
-    # print(data_json)
+    print(data_json)
     print(data_json["description"])
     task_id = data_json["result"]
     return task_id
 
 if __name__ == "__main__":
     # image_path = "/Users/dmxapi/Desktop/dxmapi.jpg" # 本地图片方式生成
-    image_url = "https://cdn.klingai.com/bs2/upload-kling-api/8089468206/image/Cl6kH2gHPegAAAAABUwweg-0_raw_image_0.png" # url 图片方式生成
+    image_url = "https://cdn.jsdelivr.net/gh/timerring/scratchpad2023/2024/2025-05-14-22-17-12.png" # url 图片方式生成
     print(midjourney_generate_image(image_url))
