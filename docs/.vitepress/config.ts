@@ -89,9 +89,9 @@ export default defineConfig({
       { icon: 'x', link: 'https://dmxapi.cn/' },
       { icon: 'wechat', link: 'https://dmxapi.cn/models.html#contact' },
     ],
-    footer: {
-      copyright: 'Copyright © 2023 - 2025 DMXAPI, LLC',
-    },
+    // footer: {
+    //   copyright: 'Copyright © 2023 - 2025 DMXAPI, LLC',
+    // },
     search: {
       provider: 'local',
       options: {

@@ -9,6 +9,7 @@ import { MotionPlugin } from '@vueuse/motion'
 import { h } from 'vue'
 import AIModelsList from './components/AIModelsList.vue'
 import DifyChatbot from './components/DifyChatbot.vue'
+import Footer from './components/Footer.vue'
 import HomeContent from './components/HomeContent.vue'
 import IntegrationCard from './components/IntegrationCard.vue'
 import IntroductionLIBlock from './components/IntroductionLIBlock.vue'
@@ -44,6 +45,7 @@ export default defineThemeUnconfig({
       'layout-bottom': {
         node: [
           () => h(DifyChatbot),
+          () => h(Footer),
         ],
       },
     },
@@ -56,6 +58,7 @@ export default defineThemeUnconfig({
     app.component('IntroductionLIBlock', IntroductionLIBlock)
     app.component('IntroductionRIBlock', IntroductionRIBlock)
     app.component('AIModelsList', AIModelsList)
+    app.component('Footer', Footer)
     app.use(TwoslashFloatingVue as Plugin)
     app.use(MotionPlugin as Plugin)
   },
